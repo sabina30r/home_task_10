@@ -1,5 +1,6 @@
-package nix.edu.service;
+package nix.edu.util;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
@@ -8,13 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.OptionalDouble;
 import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
+import java.util.stream.*;
 
 
-public class StreamService {
+public class StreamUtil {
 
     public static void findArrayMaxElement(double[] array) {
         DoubleStream stream = DoubleStream.of(array);
@@ -90,17 +88,10 @@ public class StreamService {
         System.out.println("Palindromes: " + palindromes);
     }
 
-    public static boolean isPrime(long N) {
-        return LongStream.rangeClosed(2, (long) Math.sqrt(N))
-                .allMatch(i -> N % i != 0);
-    }
-
     public static void generatePrimeSequence(long N) {
-        List<Long> primes = LongStream.iterate(2, i -> i + 1)
-                .filter(i -> isPrime(i))
-                .limit(N)
-                .boxed()
-                .collect(Collectors.toList());
+        Stream primesStream = Stream.iterate(BigInteger.TWO, i -> i.add(BigInteger.ONE))
+                .filter(i -> i.isProbablePrime((int)(1-Math.pow(2,-100))));
+        List<BigInteger> primes = (List<BigInteger>) primesStream.limit(N).collect(Collectors.toList());
         System.out.println("Prime numbers: " + primes);
     }
 

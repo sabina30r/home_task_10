@@ -1,6 +1,6 @@
 package nix.edu;
 
-import nix.edu.service.StreamService;
+import nix.edu.util.StreamUtil;
 
 import java.time.LocalDate;
 import java.time.Year;
@@ -42,24 +42,24 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("-------------- TASK 1 --------------");
-        StreamService.findArrayMaxElement(doubles);
-        StreamService.findArrayMinElement(doubles);
-        StreamService.findArrayAverage(doubles);
-        StreamService.findArraySum(doubles);
+        StreamUtil.findArrayMaxElement(doubles);
+        StreamUtil.findArrayMinElement(doubles);
+        StreamUtil.findArrayAverage(doubles);
+        StreamUtil.findArraySum(doubles);
         System.out.println("-------------- TASK 2 --------------");
-        StreamService.findLeapYears(listOfYears);
+        StreamUtil.findLeapYears(listOfYears);
         System.out.println("-------------- TASK 3 --------------");
-        StreamService.extractSubstringByRegex(stringsRegexExtract);
+        StreamUtil.extractSubstringByRegex(stringsRegexExtract);
         System.out.println("-------------- TASK 4 --------------");
-        StreamService.isPalindromeInList(stringsForPalindromes);
-        StreamService.returnIfPalindrome(stringsForPalindromes);
+        StreamUtil.isPalindromeInList(stringsForPalindromes);
+        StreamUtil.returnIfPalindrome(stringsForPalindromes);
         System.out.println("-------------- TASK 5 --------------");
-        StreamService.generatePrimeSequence(numberOfGeneratedNumeric);
+        StreamUtil.generatePrimeSequence(numberOfGeneratedNumeric);
         System.out.println("-------------- TASK 6 --------------");
-        StreamService.countNumberOfBirthPerMonth(birthdays);
+        StreamUtil.countNumberOfBirthPerMonth(birthdays);
         System.out.println("-------------- TASK 7 --------------");
-        StreamService.splitArrayIntoEvenAndOdd(evenAndOddArray);
+        StreamUtil.splitArrayIntoEvenAndOdd(evenAndOddArray);
         System.out.println("-------------- TASK 8 --------------");
-        StreamService.applyAllUnaryOperators(unaryOperatorList, stringForUnary);
+        StreamUtil.applyAllUnaryOperators(unaryOperatorList, stringForUnary);
     }
 }
